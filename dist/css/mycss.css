@@ -162,7 +162,7 @@ body{background: #ececec;font-size: 62.5%;}
 .payPerson .comJob{padding:1rem 0;}
 .payPerson .comJob img{width:15%;display: block;float:left;}
 .payPerson .comJob a{display: block;margin-left:18%;position: relative;padding-right:2rem;}
-.payPerson .comJob a:before{content: '';width:2rem;height:2rem;background: url("../images/youjian_07.png") no-repeat center;background-size:60%;position: absolute;right:0;top:calc(50% - 1rem);}
+.payPerson .comJob a:before{content: '';width:2rem;height:2rem;background: url("../images/youjian_07.png") no-repeat center;background-size:54%;position: absolute;right:0;top:calc(50% - 1rem);}
 .payPerson .comJob a b{display:block;font-size:1.5rem;color:#666;line-height: 2.4rem;}
 .payPerson .comJob a span i{display:inline-block;font-size:1.2rem;line-height:1;color:#ffbc85;padding:.6rem;background: #ffebe7;border-radius:3px;margin-bottom:1rem;margin-right:1.5rem;}
 #comDetail .jobShow{padding-top:1.5rem;padding-bottom:1.5rem;}
