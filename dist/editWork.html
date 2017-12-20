@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--禁止浏览器缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type" />
+    <!--清除浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <!--iPhone 手机上设置手机号码不被显示为拨号链接）-->
+    <meta content="telephone=no, address=no" name="format-detection" />
+    <!--IOS私有属性，可以添加到主屏幕-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--屏幕顶部条的颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>我的-工作经历</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/common.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <style>
+        .xianzhi{width:12em;}
+        #addWorkEdit em{display:none;height:34px;line-height:34px;width:1.8rem;font-size: 1.8rem;text-align: right;position: absolute;right:0;top:0;}
+        #addWorkEdit .workTime span{ text-align: center;}
+        #addWorkEdit .workTime span input[name="date"]{ width:35%;}
+        #addWorkEdit .workTime span #dateStart{ float:left;text-align: left;}
+        #addWorkEdit .workTime span #dateEnd{ float:right;text-align: right;}
+    </style>
+    <script src="node_modules/jquery-1.9.1.min.js"></script>
+    <script src="node_modules/date.js"></script>
+    <script src="node_modules/iscroll.js"></script>
+    <script src="js/public.js"></script>
+    <script>
+        var booleJob1=false,booleJob2=false;
+        $(function(){
+            //            日期信息
+            $('#dateStart').date();
+            $('#dateEnd').date();
+            //职位名称公司全称字符限制
+            $(".xianzhi").each(function(){
+                $(this).blur(function(){
+                    var maxwidth=20;
+                    if($(this).val().length>maxwidth){
+                        var maxval=$(this).val();
+                        var str=maxval.substring(0, 20)+"...";
+                        $(this).val(str);
+                    }
+                })
+            })
+            //            表单清除键
+            $(".showClose").each(function(){
+                $(this).focus(function(){
+                    clearClose($(this));
+                }).keyup(function(){
+                    clearClose($(this));
+                }).blur(function () {
+                    $(this).next().hide();
+                })
+            })
+//            清除键作用
+            $("#addWorkEdit em").each(function(){
+                $(this).on("click",function(){
+                    $(this).hide().prev("input").val("");
+                })
+            })
+
+            $(".editSave").click(function(){
+                jobName();
+                comName();
+                if(booleJob1 && booleJob2==true){
+                    $(".editSave").attr("href","myWork.html");
+                }else{
+                    var str="请完善您的工作信息";
+                    ErrorArr(str);
+                    return false;
+                }
+            })
+
+        })
+        function jobName(){
+            var jobVal=$("#jobName").val();
+            if(jobVal==""){
+                booleJob1=false;
+            }else{
+                booleJob1=true;
+            }
+        }
+        function comName(){
+            var comVal=$("#companyName").val();
+            if(comVal==""){
+                booleJob2=false;
+            }else{
+                booleJob2=true;
+            }
+        }
+    </script>
+</head>
+<body>
+<header id="header" class="navbar-fixed-top">
+    <h2><a class="returnBtn" onClick="javascript:history.back(-1);">&lt;</a><a class="editSave" href="javascript:void(0);">保存</a>工作经历</h2>
+</header>
+<div class="topheight"></div>
+<div id="addWorkEdit">
+    <form action="myWork.html" method="get">
+        <ul>
+            <li class="jobname">
+                <b>职位名称</b><span><input type="text" name="jobName" id="jobName" class="xianzhi showClose" maxlength="30" placeholder="请填写"><em>&times;</em></span>
+            </li>
+            <li class="companyname">
+                <b>公司全称</b><span><input type="text" name="companyName" id="companyName" class="xianzhi showClose" maxlength="40" placeholder="请填写"><em>&times;</em></span>
+            </li>
+            <li class="workTime">
+                <b>工作时限</b><span class="clearfix"><input type="text" id="dateStart" name="date" value="2015-12"> 至 <input type="text" id="dateEnd" name="date" value="2017-11"><i>&gt;</i></span>
+            </li>
+            <li class="workcontent">
+                <label for="workTxt">工作内容</label>
+                <textarea name="workTxt" maxlength="500" id="workTxt" cols="30" rows="10"  placeholder="请填写"></textarea>
+                <span><b>0</b> / <b>500</b></span>
+            </li>
+        </ul>
+        <div class="deleteBtn">
+            <input class="deleteEdit" href="#" type="reset" value="删除">
+        </div>
+    </form>
+
+</div>
+<div class="bottomheight"></div>
+<footer id="footer" class="navbar-fixed-bottom">
+    <a href="tryJob.html" >
+        <b></b>
+        <i>职位</i>
+    </a>
+    <a href="interview.html" class="active">
+        <b></b>
+        <i>面试记录</i>
+    </a>
+    <a href="personpage.html" >
+        <b></b>
+        <i>我的</i>
+    </a>
+</footer>
+<div class="Errordiv" style="display: none;"><span class="checkError"></span></div>
+<div id="datePlugin"></div>
+</body>
+</html>

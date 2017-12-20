@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--禁止浏览器缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type" />
+    <!--清除浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <!--iPhone 手机上设置手机号码不被显示为拨号链接）-->
+    <meta content="telephone=no, address=no" name="format-detection" />
+    <!--IOS私有属性，可以添加到主屏幕-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--屏幕顶部条的颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>找工作</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/swiper.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <style>
+        #filterPop{color:#666;font-size:1.3rem;}
+        #filterPop h4{line-height: 3.6rem;}
+        #filterPop label b,#cityPop label b{vertical-align:middle;display:inline-block;height:28px;line-height:28px;font-size:14px;border:1px solid #ddd;border-radius:14px;background:#fff;padding:0 14px;margin:10px 5px;position: relative;z-index: 100;}
+        #filterPop label input,#cityPop label input{vertical-align:middle;}
+        #filterPop input[name="weal"],#filterPop input[name="education"],#cityPop input[name="city"]{opacity: 0;width:0;}
+        #filterPop label b.blue,#filterPop label b.blue:before,#filterPop label b.blue:after,#cityPop label.blue{color:#00baff;border-color:#00baff;}
+        #filterPop .modal-footer,#cityPop .modal-footer{text-align: center;}
+        #filterPop .resetBtn,#filterPop .subBtn{height:4.4rem;line-height: 4.4rem;font-size:1.8rem;border:1px solid #00baff;border-radius: 6px;width:40%;max-width: 150px;}
+        #filterPop .resetBtn{color:#00baff;background: #fff;margin-right:4%;}
+        #filterPop .subBtn{color:#fff;background: #00baff;margin-left:4%;}
+        #filterPop .modal-dialog,#cityPop .modal-dialog{width:100%;margin:0;}
+        #filterPop .modal-content{top:44px;}
+        #filterPop .modal-content,#cityPop .modal-content{box-shadow: none;border:none;border-radius: 0;}
+        #cityPop .modal-header{height:44px;line-height: 44px;background: #00baff;color:#fff;}
+        #cityPop h4{text-align: center;font-size: 1.8rem;margin-top:-3px;}
+        #cityPop label{border:1px solid #9d9d9d;color:#333;height:4.4rem;line-height:4.4rem;width:40%;max-width:11rem;font-size: 1.5rem;text-align: center;border-radius: 6px;margin: 0 4% 1rem 0;}
+        #cityPop p{color:#999;font-size: 1.2rem;}
+        #cityPop .cityBtn{font-size: 1.8rem;line-height: 4.4rem;width:100%;border-radius: 6px;background: #00baff;color: #fff;border:none;}
+        .modal-body,.modal-footer{padding:15px 5%;}
+        #cityPop .modal-body{min-height: 250px;}
+        #cityPop .modal-footer{padding:0 15px 6rem;}
+        .modal-footer{border:none;}
+        .modal-backdrop.in{top:44px;}
+        input::-webkit-input-placeholder {color:#fff;}
+        input:-moz-placeholder {color:#fff;}
+        input::-moz-placeholder {color:#fff;}
+        input:-ms-input-placeholder {color:#fff;}
+    </style>
+    <script src="node_modules/jquery-1.9.1.min.js"></script>
+    <script src="../node_modules/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/swiper.min.js"></script>
+</head>
+<body>
+<header id="header" class="navbar-fixed-top jobHeader">
+    <a href="javascript:void(0);" class="city" data-toggle="modal" data-target="#cityPop">北京<i></i></a>
+    <span class="search"><a href class="searchA"></a><input type="text" name="searchInput" placeholder="搜索职位工作"></span>
+    <a href="javascript:void(0);" class="filter" data-toggle="modal" data-target="#filterPop">筛选<i></i></a>
+</header>
+<div class="topheight"></div>
+<div id="banner" class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
+        <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
+        <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<div id="jobShow">
+    <div class="jobList clearfix">
+        <div class="comName">
+            <img src="images/comlog_03.png" alt="公司logo">
+        </div>
+        <ul class="jobDetail">
+            <li>
+                <b>小程序推广员</b><em>6-12K</em>
+            </li>
+            <li>
+                <h4>每日优鲜</h4>
+            </li>
+            <li class="showDress">
+                <span>北京-来广营</span><i>大专</i>
+            </li>
+            <li class="condition">
+                <span>办公环境舒适</span><span>团队年轻有活力</span><span>丰富下午茶</span>
+            </li>
+            <li class="showTime"><b></b><span>11月3日10：30 星期五</span></li>
+        </ul>
+    </div>
+    <div class="jobList clearfix">
+        <div class="comName">
+            <img src="images/comlog_03.png" alt="公司logo">
+        </div>
+        <ul class="jobDetail">
+            <li>
+                <b>小程序推广员</b><em>6-12K</em>
+            </li>
+            <li>
+                <h4>每日优鲜</h4>
+            </li>
+            <li class="showDress">
+                <span>北京-来广营</span><i>大专</i>
+            </li>
+            <li class="condition">
+                <span>办公环境舒适</span><span>团队年轻有活力</span><span>丰富下午茶</span>
+            </li>
+            <li class="showTime"><b></b><span>11月3日10：30 星期五</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="bottomheight"></div>
+<footer id="footer" class="navbar-fixed-bottom">
+    <a href="tryJob.html" class="active">
+        <b></b>
+        <i>职位</i>
+    </a>
+    <a href="interview.html">
+        <b></b>
+        <i>面试记录</i>
+    </a>
+    <a href="personInfo.html">
+        <b></b>
+        <i>我的</i>
+    </a>
+</footer>
+<!--筛选-->
+<div class="modal fade" id="filterPop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="get">
+                <div class="modal-body">
+                    <h4>福利标签（多选）</h4>
+                    <div class="boxGroup">
+                        <label><b>五险一金</b><input type="checkbox" name="weal"></label>
+                        <label><b>提供住宿</b><input type="checkbox" name="weal"></label>
+                        <label><b>周末双休</b><input type="checkbox" name="weal"></label>
+                        <label><b>交通补助</b><input type="checkbox" name="weal"></label>
+                        <label><b>带薪年假</b><input type="checkbox" name="weal"></label>
+                        <label><b>员工旅游</b><input type="checkbox" name="weal"></label>
+                        <label><b>朝九晚六</b><input type="checkbox" name="weal"></label>
+                        <label><b>弹性时间</b><input type="checkbox" name="weal"></label>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4>学历要求</h4>
+                    <div class="boxGroup">
+                        <label><b>不限学历</b><input type="radio" name="education"></label>
+                        <label><b>高中/中专/职高及以下</b><input type="radio" name="education"></label>
+                        <label><b>大专</b><input type="radio" name="education"></label>
+                        <label><b>本科及以上</b><input type="radio" name="education"></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="resetBtn" data-dismiss="modal" value="重置">
+                    <input type="submit" class="subBtn" value="确定">
+                </div>
+            </form>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--城市-->
+<div class="modal fade" id="cityPop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="get">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff;opacity: 1;font-weight: 400;">&times;</button>
+                    <h4 class="modal-title" >选择城市</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="cityGroup">
+                        <label>北京<input type="radio" name="city"></label>
+                        <label>天津<input type="radio" name="city"></label>
+                    </div>
+                    <p>*其他城市还在建设中，敬请关注</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="cityBtn" value="确定">
+                </div>
+            </form>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script>
+    var count=0;
+    $("#filterPop label").click(function(){
+         count=parseInt($("input:checked").length);
+        $(".subBtn").val("确定" +'('+ count+')');
+        $("input[type='checkbox']").each(function(){
+            $(this).is(":checked") ? $(this).prev("b").addClass("blue") : $(this).prev("b").removeClass("blue")
+        })
+        $("input[type='radio']").each(function(){
+            $(this).is(":checked") ? $(this).prev("b").addClass("blue").siblings("label").children("b").removeClass("blue") : $(this).prev("b").removeClass("blue")
+        })
+    })
+    /*$("#cityPop label").click(function(){
+        $("input[name='city']").each(function(){
+            $(this).is(":checked") ? $(this).prev("b").addClass("blue").siblings("label").children("b").removeClass("blue") : $(this).prev("b").removeClass("blue")
+        })
+    })*/
+    $("#cityPop label").click(function(){
+        $("input[name='city']").each(function(){
+            $(this).is(":checked") ? $(this).parent("label").addClass("blue").siblings("label").removeClass("blue") : $(this).parent("label").removeClass("blue")
+        })
+    })
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--禁止浏览器缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type" />
+    <!--清除浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <!--iPhone 手机上设置手机号码不被显示为拨号链接）-->
+    <meta content="telephone=no, address=no" name="format-detection" />
+    <!--IOS私有属性，可以添加到主屏幕-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--屏幕顶部条的颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>我的-个人信息</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/common.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <script src="node_modules/jquery-1.9.1.min.js"></script>
+    <script src="node_modules/date.js"></script>
+    <script src="node_modules/iscroll.js"></script>
+    <script src="js/public.js"></script>
+    <script>
+        var ok1=false,ok2=false,ok3=false,ok4=false;
+        $(function () {
+//            日期信息
+            $('#date').date();
+//            学历选择
+            $(".education").click(function(){
+                $("#bg").css({
+                    height: $(document).height()
+                }).fadeIn(500);
+                var $box = $('.eduLevel');
+                $box.fadeIn(500);
+            })
+            $(".eduLevel li").on('click',function () {
+                $("#bg,.eduLevel").fadeOut(500);
+                $(".education input").val($(this).html());
+            });
+//            表单清除键
+            $(".showClose").each(function(){
+                $(this).focus(function(){
+                    clearClose($(this));
+                 }).keyup(function(){
+                    clearClose($(this));
+                })
+            })
+//            清除键作用
+            $("#infoDetailed em").each(function(){
+                $(this).on("click",function(){
+                    $(this).hide().prev("input").val("");
+                })
+            })
+            //选中与否状态图标切换
+            $(".yuan").on("click",function()
+            {
+                if ($(this).hasClass("on")){
+
+                    $(this).children("input").attr('checked' ,true);
+                    $(this).removeClass("on").siblings().addClass("on").children("input").attr('checked' ,false);
+                }
+            });
+            //微信号邮箱内容长度显示限制
+            $(".xianzhi").each(function(){
+                $(this).blur(function(){
+                    var maxwidth=20;
+                    if($(this).val().length>maxwidth){
+                        var maxval=$(this).val();
+                        var str=maxval.substring(0, 20)+"...";
+                        $(this).val(str);
+                    }
+                })
+            })
+            // 验证姓名
+            $("#userName").blur(function(){
+                var userVal=$(this).val();
+                if (parseInt(userVal.length)< 20){
+                    ok1 = true;
+                }else {
+                    var str="姓名格式不正确";
+                    ErrorArr(str);
+                    ok2= false;
+                }
+            });
+//            验证专业
+            $("#skillText").blur(function(){
+                var skillVal=$(this).val();
+                if(skillVal.length>0){
+                    ok2 = true;
+                }else{
+                    var str="请输入专业";
+                    ErrorArr(str);
+                    ok2= false;
+                }
+            })
+//            验证微信号
+            $("#wxChat").blur(function(){
+                var wxChatVal=$(this).val();
+                if((/^[a-zA-Z0-9_]+$/).test(wxChatVal)){
+                    ok3=true;
+                }else{
+                    var str="微信号格式不正确";
+                    ErrorArr(str);
+                    ok3= false;
+                }
+            })
+//            邮箱验证
+            $("#myEmail").blur(function(){
+                var emailVal=$(this).val();
+                if ((/^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/).test(emailVal)){
+                    ok4= true;
+                }else {
+                    var str="邮箱格式不正确";
+                    ErrorArr(str);
+                    ok4= false;
+                }
+            })
+        })
+            //保存验证
+            function infocheckSubmit(){
+                if(ok1 && ok2 && ok3 && ok4 == true){
+                    return true;
+                }else{
+                    var str="请完善信息";
+                    ErrorArr(str);
+                    return false;
+                }
+            }
+
+    </script>
+</head>
+<body>
+<header id="header" class="navbar-fixed-top">
+    <h2 class="text-center"><a href="javascript:void(0);" class="returnBtn" onClick="javascript:history.back(-1);"></a><a class="closeBtn" onClick="javascript:history.back(-1);">&times;</a>个人信息</h2>
+</header>
+<div class="topheight"></div>
+<div id="infoDetailed">
+    <form action="personpage.html" method="get">
+        <ul>
+            <li class="headerImg move">
+                <b>头像</b><input id="Imgfile" type="file"/><span><img src="images/cam_03.png" alt=""></span>
+            </li>
+            <li class="username">
+                <b>姓名（必填）：</b><span><input type="text" class="xianzhi" name="username" id="userName" placeholder="请填写" maxlength="22" class="showClose"><em>&times;</em></span>
+            </li>
+            <li class="sex">
+                <b>性别（必填）：</b>
+                <span>
+                    <label for="men">男</label><b class="yuan"><input id="men" checked="checked" name="sex" type="radio" /></b>
+                    <label for="women">女</label><b class="yuan on"><input id="women" name="sex" type="radio" /></b>
+                </span>
+            </li>
+            <li class="date move">
+                <b>出生年月（必填）：</b><span><input type="text" id="date" name="date" value="2002-01" class="kbtn"><label for="date">&gt;</label></span>
+            </li>
+            <li class="education move">
+                <b>最高学历（必填）：</b><span><input type="text" id="edu" name="date" disabled="disabled" value="本科"><label for="edu">&gt;</label></span>
+            </li>
+            <li class="skill">
+                <b>专业（必填）：</b><span><input type="text" name="wxChat" id="skillText" class="jineng showClose" placeholder="请填写" maxlength="20"><em>&times;</em></span>
+            </li>
+            <li class="wx">
+                <b>微信号：</b><span><input type="text" name="wxChat" id="wxChat" class="xianzhi showClose" placeholder="请填写" maxlength="40"><em>&times;</em></span>
+            </li>
+            <li class="myemail">
+                <b>邮箱：</b><span><input type="text" name="myEmail" id="myEmail" class="xianzhi showClose" placeholder="请填写"><em>&times;</em></span>
+            </li>
+        </ul>
+        <div class="saveBtn">
+            <input type="submit" name="saveSubmit" value="保存" id="saveSubmit" onclick="return infocheckSubmit();">
+        </div>
+    </form>
+</div>
+<div class="bottomheight"></div>
+<footer id="footer" class="navbar-fixed-bottom">
+    <a href="tryJob.html" >
+        <b></b>
+        <i>职位</i>
+    </a>
+    <a href="interview.html">
+        <b></b>
+        <i>面试记录</i>
+    </a>
+    <a href="personInfo.html" class="active">
+        <b></b>
+        <i>我的</i>
+    </a>
+</footer>
+<div class="Errordiv" style="display: none;"><span class="checkError"></span></div>
+<div id="datePlugin"></div>
+<div id="bg">
+
+</div>
+<div class="eduLevel">
+    <ul>
+        <li>初中</li>
+        <li>高中/中技/中专</li>
+        <li>大专</li>
+        <li>本科</li>
+        <li>硕士</li>
+        <li>博士</li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--禁止浏览器缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type" />
+    <!--清除浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <!--iPhone 手机上设置手机号码不被显示为拨号链接）-->
+    <meta content="telephone=no, address=no" name="format-detection" />
+    <!--IOS私有属性，可以添加到主屏幕-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--屏幕顶部条的颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>面试记录-取消原因</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <script src="node_modules/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function(){
+            //选中与否状态图标切换
+            $("#cancleReson li").each(function(){
+                $(this).on("click",function () {
+                    if ($(this).hasClass("on")){
+                        $(this).removeClass("on");
+                    }else{
+                        $(this).addClass("on");
+
+                    }
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+<header id="header" class="navbar-fixed-top">
+    <h2 class="text-center"><a class="returnBtn" onClick="javascript:history.back(-1);">&lt;</a><a class="closeBtn" onClick="javascript:history.back(-1);">&times;</a>请选择取消原因</h2>
+</header>
+<div class="topheight"></div>
+<div id="cancleReson">
+    <form action="interview.html" method="get">
+        <ul>
+            <li><label>岗位不太合适</label><span><input type="checkbox"></span></li>
+            <li><label>地址太远了</label><span><input type="checkbox"></span></li>
+            <li><label>去其他企业面试了</label><span><input type="checkbox"></span></li>
+            <li><label>找到工作了</label><span><input type="checkbox"></span></li>
+            <li><label>点错，我不想去</label><span><input type="checkbox"></span></li>
+            <li><label>其他</label><span><input type="checkbox"></span></li>
+            <li><label>岗位不太合适</label><span><input type="checkbox"></span></li>
+            <li><textarea name="writeReson" id="writeReson" rows="5" maxlength="200"></textarea></li>
+        </ul>
+        <div class="confirmBtn">
+            <input type="submit" name="okSubBtn" value="确认" id="okSubBtn">
+        </div>
+    </form>
+</div>
+<div class="bottomheight"></div>
+<footer id="footer" class="navbar-fixed-bottom">
+    <a href="tryJob.html" >
+        <b></b>
+        <i>职位</i>
+    </a>
+    <a href="interview.html" class="active">
+        <b></b>
+        <i>面试记录</i>
+    </a>
+    <a href="personpage.html">
+        <b></b>
+        <i>我的</i>
+    </a>
+</footer>
+</body>
+</html>

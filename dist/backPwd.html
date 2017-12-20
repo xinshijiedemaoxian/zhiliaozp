@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--禁止浏览器缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type" />
+    <!--清除浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <!--iPhone 手机上设置手机号码不被显示为拨号链接）-->
+    <meta content="telephone=no, address=no" name="format-detection" />
+    <!--IOS私有属性，可以添加到主屏幕-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--屏幕顶部条的颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>找回密码</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <script src="node_modules/jquery-1.9.1.min.js"></script>
+    <script src="js/public.js"></script>
+    <script>
+        var NewOk1=false,NewOk2=false;
+        $(function(){
+//            手机号验证
+            $("#telNumber").on("telCk",function () {
+                var telVal=$(this).val();
+                if((/^1[3|4|5|8][0-9]\d{4,8}$/i).test(telVal)){
+                    NewOk1=true;
+                }else{
+                    NewOk1=false;
+                }
+            })
+//            密码验证
+            $("#newPwd").on("newPwdCk",function(){
+                var Pedval =$(this).val();
+                if((/^[a-zA-Z0-9]{6,10}$/).test(Pedval)){
+                    NewOk2=true;
+                }else{
+                    NewOk2=false;
+                }
+            })
+            //            表单清除键
+                $("#telNumber").focus(function(){
+                    clearClose2($(this));
+                }).keyup(function(){
+                    clearClose2($(this));
+                }).blur(function () {
+                    $(this).next().hide();
+                })
+//            清除键作用
+            $(".userTel em").each(function(){
+                $(this).on("click",function(){
+                    $(this).hide().prev("input").val("");
+                })
+            })
+//        提交按钮的变化
+            $(".tyInput").each(function(){
+                $(this).keyup(function(){
+                    changeCk();
+                })
+            })
+        })
+//        提交按钮的变化
+        function changeCk(){
+            var telNumber=$("#telNumber").val(),newPwd=$("#newPwd").val(),getCode=$("#getCode").val();
+            if(telNumber || newPwd || getCode != ""){
+                $(".resetPwdBtn").removeAttr("disabled").css("background","#00baff");
+            }else if(telNumber || newPwd || getCode == ""){
+                $(".resetPwdBtn").attr("disabled","disabled").css("background","#66d6ff");
+            }
+        }
+//        手机号密码验证
+        function restPwd(){
+            $("#telNumber").trigger("telCk");
+            $("#newPwd").trigger("newPwdCk");
+            if(NewOk1 && NewOk2 ==true){
+                return true;
+            }else if((NewOk1 == false && NewOk2 == true) || (NewOk1 == false && NewOk2 == false)){
+                var str="请输入正确手机号";
+                ErrorArr(str);
+                return false;
+            }else if(NewOk1 == true && NewOk2 == false){
+                var str1="请输入正确格式密码";
+                ErrorArr(str1);
+                return false;
+            }
+        }
+//        获取验证码
+        function getCode() {
+            $("#telNumber").trigger("telCk");
+            if(NewOk1==true){
+                var time = 60,flag=1;
+                function timeCountDown(){
+                    if(time==0){
+                        clearInterval(timer);
+                        $('.get').html("重新获取").css({"border-color":"#00baff","color":"#00baff"});
+                        flag = 1;
+                        return true;
+                    }
+                    $('.get').html(time+"S").css({"border-color":"#666","color":"#666"});
+                    time--;
+                    return false;
+                    flag = 0;
+                }
+//                $('.get').addClass('send0').removeClass('send1');
+                timeCountDown();
+                var timer = setInterval(timeCountDown,1000);
+            }else{
+                var str="请输入正确手机号";
+                ErrorArr(str);
+                return false;
+            }
+        }
+        //        文本框清空
+        function clearClose2(that){
+            if(that.val().length!=""){
+                that.next().show();
+                that.parent("li").addClass("closeSh");
+            }else{
+                that.next().hide();
+            }
+        }
+
+    </script>
+</head>
+<body id="pwdBody">
+<header id="header" class="navbar-fixed-top">
+    <h2 class="text-center"><a class="closeBtn" onClick="javascript:history.back(-1);">&times;</a>找回密码</h2>
+</header>
+<div class="topheight"></div>
+<div id="backPwdContent">
+    <form action="index.html" method="get">
+        <ul>
+            <li class="userTel">
+                <input type="text" name="telNumber" id="telNumber" class="tyInput" placeholder="手机号"><em>&times;</em>
+            </li>
+            <li class="newPwdLi">
+                <input type="password" name="newPwd" id="newPwd" class="tyInput" placeholder="新密码（6-20位数字、字母或字符）">
+
+            </li>
+            <li class="getCodeLi">
+                <input type="password" name="newPwd" class="tyInput" id="getCode" placeholder="验证码"><a href="javascript:void(0);" class="get" onclick="getCode()">获取</a>
+                <p class="wrError"></p>
+            </li>
+        </ul>
+        <div class="resetPwd">
+            <input class="resetPwdBtn" type="submit" value="重置密码并登录" disabled="disabled" onclick="return restPwd();"/>
+        </div>
+    </form>
+</div>
+<div class="Errordiv" style="display: none;"><span class="checkError"></span></div>
+</body>
+</html>
