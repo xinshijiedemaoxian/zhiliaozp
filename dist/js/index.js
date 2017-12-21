@@ -1,19 +1,18 @@
 /**
- * Created by Administrator on 2017-11-10.
+ * Created by Administrator on 2017-12-21.
  */
 var BooleanOk1=false,BooleanOk2=false,BooleanOk3=false;
 $(function(){
     var mesLogin=$("#mesLogin"),pwdLogin=$("#pwdLogin");
     var titleCode=$(".titleCode"),titlePwd=$(".titlePwd");
-
     // var grey,blue;
-    titlePwd.bind("click",function(){
+    titlePwd.bind("touchend",function(){
          pwdLogin.show();
          mesLogin.hide();
         change($(this),'grey','blue');
         change(titleCode,'blue','grey');
      })
-    titleCode.bind("click",function(){
+    titleCode.bind("touchend",function(){
         mesLogin.show();
         pwdLogin.hide();
         change($(this),'grey','blue');
@@ -45,13 +44,13 @@ $(function(){
     })
     //密码框 明文切换
     var showPwd=$("#showPwd")
-    showPwd.click(function(){
+    showPwd.bind("touchend",(function(){
         if($(".pwdSpan").length=== 0){
             showPwd.addClass("pwdSpan").parent(".inputPwd").children("input").attr("type","text");
         }else{
             showPwd.removeClass("pwdSpan").parent(".inputPwd").children("input").attr("type","password");
         }
-    })
+    }))
 
     function inputMath(inputVal,that){
         if(inputVal !=0){
@@ -97,13 +96,11 @@ $(function(){
         clearClose($(this));
     }).keyup(function(){
         clearClose($(this));
-    }).blur(function () {
-        $(this).next().hide();
     })
 //            清除键作用
     $("#loginContent em").each(function(){
-        $(this).on("click",function(){
-            $(this).hide().prev("input").val("");
+        $(this).on("touchend",function(){
+            $(this).hide().prev("input").val("").focus();
         })
     })
 })

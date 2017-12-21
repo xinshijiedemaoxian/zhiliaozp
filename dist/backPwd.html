@@ -52,7 +52,7 @@
 //            清除键作用
             $(".userTel em").each(function(){
                 $(this).on("touchend",function(){
-                    $(this).hide().prev("input").val("");
+                    $(this).hide().prev("input").val("").focus();
                 })
             })
 //        提交按钮的变化

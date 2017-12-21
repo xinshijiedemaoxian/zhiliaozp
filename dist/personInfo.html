@@ -52,7 +52,7 @@
 //            清除键作用
             $("#infoDetailed em").each(function(){
                 $(this).on("click",function(){
-                    $(this).hide().prev("input").val("");
+                    $(this).hide().prev("input").val("").focus();
                 })
             })
             //选中与否状态图标切换

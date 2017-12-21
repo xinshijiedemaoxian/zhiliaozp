@@ -1,3 +1,4 @@
+/*2017-12-21*/
 /*个人信息*/
 body{background: #ececec;font-size: 62.5%;}
 #header h2{text-align:center;height:44px;line-height:44px;background: #00baff;font-size:18px;color:#fff;position: relative;z-index: 1040;}
@@ -10,16 +11,16 @@ body{background: #ececec;font-size: 62.5%;}
 #infoDetailed li{color:#666;margin-top:10px;padding:0 10px;font-size:15px;height:34px;line-height: 34px;border-bottom:1px solid #d6d6d6;position: relative;}
 #infoDetailed li b{display: inline-block;width:40%;word-break:break-all;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;}
 #infoDetailed li span{float:right;height:34px;line-height: 34px;display: inline-block;position: relative;    text-align: right;
-    width: 60%;padding-right:1.8rem;overflow: hidden;}
+    width: 60%;padding-right:30px;overflow: hidden;}
 #infoDetailed li input[type="file"]{width:60%;position: absolute;right:0;top:0;outline: none;opacity: 0;  filter: alpha(opacity=0);}
 #infoDetailed li.headerImg span{font-size: 0;}
-#infoDetailed li span i,#infoDetailed li span input[type="text"]+label{position:absolute;right:0;top:0;display: inline-block;height:34px;width:1.8rem;text-align: right;font-size:1.8rem;}
+#infoDetailed li span i,#infoDetailed li span input[type="text"]+label{position:absolute;right:0;top:0;display: inline-block;height:34px;width:30px;text-align: center;font-size:1.8rem;}
 #infoDetailed li.headerImg span img{width:25px;margin-bottom:7px;}
 #infoDetailed li span input[type="text"]{
     border:none;background: transparent;font-size:14px;text-align: right;margin:0;overflow: hidden;width:100%;height:24px;line-height:24px;padding:3px 0;
 }
 #infoDetailed .saveBtn{text-align: center;margin-top:2rem;}
-#infoDetailed .saveBtn input[type="submit"]{height:50px;width:100%;background:#00baff;border:none;color:#fff;font-size: 18px;}
+#infoDetailed .saveBtn input[type="submit"]{outline:0; -webkit-appearance:none;height:50px;width:100%;background:#00baff;border:none;color:#fff;font-size: 18px;}
 
 #footer{padding:3px 0;width:100%;background: #fff;border-top:1px solid #ddd;display:-moz-box; /* Firefox */  display:-webkit-box; /* Safari and Chrome */  }
 #footer a{display:block;-moz-box-flex:1.0; /* Firefox */  -webkit-box-flex:1.0; /* Safari and Chrome */  box-flex:1.0;  text-align: center;color:#666;font-size: 12px;}
@@ -67,14 +68,14 @@ body{background: #ececec;font-size: 62.5%;}
     vertical-align:middle;border:0;  height: 26px;  line-height: 26px;  font-size: 14px;  border: none;
     padding: 4px 0 4px 0;  width:100%;word-break:keep-all;  white-space:nowrap;  overflow:hidden;  text-overflow:ellipsis;
     background: transparent;text-align: right;margin:0;  }
-#addWorkEdit li span{float:right;text-align:right;height:34px;line-height: 34px;display: inline-block;position: relative;padding-right:1.8rem;width:65%;}
+#addWorkEdit li span{float:right;text-align:right;height:34px;line-height: 34px;display: inline-block;position: relative;padding-right:30px;width:65%;}
 #addWorkEdit li span i{position:absolute;right:0;top:0;display: inline-block;height:34px;width:15px;}
 #addWorkEdit li.workcontent{height:auto;padding:0;border:none;}
 #addWorkEdit li.workcontent label{display: block;padding:0 10px}
 #addWorkEdit li.workcontent textarea{padding:10px 10px 30px;font-size:13px;line-height: 1.5;border:1px solid #ddd;border-radius: 6px;width:100%;overflow: hidden;resize: none;}
 #addWorkEdit li.workcontent span{position: absolute;right:0;bottom:12px;font-size:13px;color:#e6e6e6;}
 #addWorkEdit .deleteBtn{text-align: center;}
-#addWorkEdit .deleteEdit{display:block;width:100%;text-align:center;height:50px;line-height:50px;background:#00baff;border:none;color:#fff;font-size: 18px;}
+#addWorkEdit .deleteEdit{outline:0; -webkit-appearance:none;display:block;width:100%;text-align:center;height:50px;line-height:50px;background:#00baff;border:none;color:#fff;font-size: 18px;}
 
 /*找回密码*/
 #pwdBody{background: #fff;}
@@ -82,7 +83,7 @@ body{background: #ececec;font-size: 62.5%;}
 #backPwdContent ul li{position: relative;padding:8px;border-bottom:1px solid #99e3ff;}
 #backPwdContent ul li input{width:100%;height:26px;line-height:26px;font-size:14px;border:none;padding:4px 24px 4px 0;}
 #backPwdContent ul li a{font-size:1.3rem;padding:8px 12px;line-height:1;border:1px solid #00baff;color:#00baff;border-radius:3px;position: absolute;right:0;top:8px;}
-#backPwdContent .resetPwd input[type="submit"]{display: block;width:80%;border:none;font-size:18px;height:5rem;line-height:5rem;margin:0 auto;background: #66d6ff;border-radius: 6px;color:#fff;text-align: center;}
+#backPwdContent .resetPwd input[type="submit"]{outline:0; -webkit-appearance:none;display: block;width:80%;border:none;font-size:18px;height:5rem;line-height:5rem;margin:0 auto;background: #66d6ff;border-radius: 6px;color:#fff;text-align: center;}
 
 /*面试记录*/
 .interViewShow{margin-top:6px;}
@@ -115,14 +116,15 @@ body{background: #ececec;font-size: 62.5%;}
 #cancleReson ul li:last-child{margin-top:-1rem;}
 #cancleReson ul li:last-child textarea{width:100%;padding:8px 12px;font-size:1.3rem;border-radius:5px;resize:none;}
 #cancleReson .confirmBtn{text-align: center;padding:1.5rem 8% 0;}
-#cancleReson .confirmBtn input[type="submit"]{width:100%;height:5rem;line-height:5rem;font-size:1.8rem;color:#fff;background: #00baff;border:none;border-radius:3px;}
+#cancleReson .confirmBtn input[type="submit"]{outline:0; -webkit-appearance:none;width:100%;height:5rem;line-height:5rem;font-size:1.8rem;color:#fff;background: #00baff;border:none;border-radius:3px;}
 
 /*找工作*/
 .jobHeader{padding:0 2%;text-align: center;height:44px;line-height: 44px;background: #00baff;}
 .jobHeader span{display: inline-block;}
 .jobHeader span.search{width:54%;height:28px;line-height: 28px;background: #0097ff;padding:0 1rem 0 2rem;position: relative;    border-radius: 14px;}
-.jobHeader span.search a{display: inline-block;height:28px;line-height: 28px;width:24px;background: url("../images/iconGroup_03.png") no-repeat -212px -44px;position: absolute;left:0;top:0;z-index: 1042;}
-.jobHeader span.search input{border:none;vertical-align: middle;background: transparent;color:#fff;font-size:12px;height:20px;padding:0 1rem 0 0;word-break: break-all;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.jobHeader span.search a{display: inline-block;height:28px;line-height: 28px;width:30px;background: url("../images/iconGroup_03.png") no-repeat -212px -44px;position: absolute;left:0;top:0;z-index: 1042;}
+.jobHeader span.search input{border:none;vertical-align: middle;background: transparent;color:#fff;font-size:12px;height:20px;word-break: break-all;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;height: 24px;
+    line-height: 20px;}
 .jobHeader a.city,.jobHeader a.filter{font-size: 1.3rem;color:#fff;}
 .jobHeader a.city i,.jobHeader a.filter i{display:inline-block;width:20px;height:44px;padding:0;vertical-align:top;background: url("../images/xiala_03.png") no-repeat center;background-size: 80%;z-index: 1031;}
 .jobHeader a.city{float:left;}
@@ -211,7 +213,7 @@ body{background: #ececec;font-size: 62.5%;}
 /*补充*/
 /*backPwd*/
 .userTel{position: relative;}
-.userTel em{display: none;height:3.6rem;line-height:3.6rem;width:24px;font-size: 1.8rem;text-align: center;}
+.userTel em{display: none;height:3.6rem;line-height:3.6rem;width:30px;font-size: 1.8rem;text-align: center;}
 .closeSh em{position: absolute;right:0;top:0;}
 #backPwdContent .userTel em{}
 /*cancelReson*/
@@ -240,7 +242,7 @@ body{background: #ececec;font-size: 62.5%;}
 #infoDetailed li b.yuan{display: initial;height:34px;width:16px;background: url("../images/yuan1_02.png") no-repeat center;padding:4px 8px;}
 #infoDetailed li b.yuan input[type='radio']{ opacity: 0;filter: alpha(opacity=0);}
 #infoDetailed li b.on {  background: url("../images/yuan1_04.png") no-repeat center;  }
-#infoDetailed em{ display:none;height:34px;line-height:34px;width:1.8rem;font-size: 1.8rem;text-align: right;position: absolute;right:0;top:0;}
+#infoDetailed em{ display:none;height:34px;line-height:34px;width:30px;font-size: 1.8rem;text-align: center;position: absolute;right:0;top:0;}
 .eduLevel{display:none;width:100%;position: absolute;left:0;bottom:0;background: #fff;border-top-left-radius: 6px;border-top-right-radius: 6px;z-index:1061;}
 .eduLevel li{text-align: center;font-size:14px;color:#666;line-height: 30px;border-bottom:1px solid #ddd;}
 #bg{display: none;position: absolute;width: 100%;height: 100%;top:0;left:0;background: #2b2b2b; filter:alpha(Opacity=50);-moz-opacity:0.5;opacity: 0.5;z-index: 1060;}
