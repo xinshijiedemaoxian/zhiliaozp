@@ -16,8 +16,8 @@
     <!--屏幕顶部条的颜色-->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>找工作</title>
-    <link rel="stylesheet" href="node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/swiper.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/swiper.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/mycss.css">
     <style>
@@ -50,7 +50,7 @@
         input:-ms-input-placeholder {color:#fff;}
     </style>
     <script src="node_modules/jquery-1.9.1.min.js"></script>
-    <script src="node_modules/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="node_modules/swiper.min.js"></script>
 </head>
 <body>
@@ -59,60 +59,61 @@
     <span class="search"><a href class="searchA"></a><input type="text" name="searchInput" placeholder="搜索职位工作"></span>
     <a href="javascript:void(0);" class="filter" data-toggle="modal" data-target="#filterPop">筛选<i></i></a>
 </header>
-<div class="topheight"></div>
-<div id="banner" class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
-        <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
-        <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-</div>
-<div id="jobShow">
-    <div class="jobList clearfix">
-        <div class="comName">
-            <img src="images/comlog_03.png" alt="公司logo">
+<div id="view">
+    <div id="banner" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
+            <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
+            <div class="swiper-slide"><a href="#"><img src="images/banner1_02.png" alt="轮播图"></a></div>
         </div>
-        <ul class="jobDetail">
-            <li>
-                <b>小程序推广员</b><em>6-12K</em>
-            </li>
-            <li>
-                <h4>每日优鲜</h4>
-            </li>
-            <li class="showDress">
-                <span>北京-来广营</span><i>大专</i>
-            </li>
-            <li class="condition">
-                <span>办公环境舒适</span><span>团队年轻有活力</span><span>丰富下午茶</span>
-            </li>
-            <li class="showTime"><b></b><span>11月3日10：30 星期五</span></li>
-        </ul>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
     </div>
-    <div class="jobList clearfix">
-        <div class="comName">
-            <img src="images/comlog_03.png" alt="公司logo">
+    <div id="jobShow">
+        <div class="jobList clearfix">
+            <div class="comName">
+                <img src="images/comlog_03.png" alt="公司logo">
+            </div>
+            <ul class="jobDetail">
+                <li>
+                    <b>小程序推广员</b><em>6-12K</em>
+                </li>
+                <li>
+                    <h4>每日优鲜</h4>
+                </li>
+                <li class="showDress">
+                    <span>北京-来广营</span><i>大专</i>
+                </li>
+                <li class="condition">
+                    <span>办公环境舒适</span><span>团队年轻有活力</span><span>丰富下午茶</span>
+                </li>
+                <li class="showTime"><b></b><span>11月3日10：30 星期五</span></li>
+            </ul>
         </div>
-        <ul class="jobDetail">
-            <li>
-                <b>小程序推广员</b><em>6-12K</em>
-            </li>
-            <li>
-                <h4>每日优鲜</h4>
-            </li>
-            <li class="showDress">
-                <span>北京-来广营</span><i>大专</i>
-            </li>
-            <li class="condition">
-                <span>办公环境舒适</span><span>团队年轻有活力</span><span>丰富下午茶</span>
-            </li>
-            <li class="showTime"><b></b><span>11月3日10：30 星期五</span></li>
-        </ul>
+        <div class="jobList clearfix">
+            <div class="comName">
+                <img src="images/comlog_03.png" alt="公司logo">
+            </div>
+            <ul class="jobDetail">
+                <li>
+                    <b>小程序推广员</b><em>6-12K</em>
+                </li>
+                <li>
+                    <h4>每日优鲜</h4>
+                </li>
+                <li class="showDress">
+                    <span>北京-来广营</span><i>大专</i>
+                </li>
+                <li class="condition">
+                    <span>办公环境舒适</span><span>团队年轻有活力</span><span>丰富下午茶</span>
+                </li>
+                <li class="showTime"><b></b><span>11月3日10：30 星期五</span></li>
+            </ul>
+        </div>
     </div>
+
 </div>
 
-<div class="bottomheight"></div>
 <footer id="footer" class="navbar-fixed-bottom">
     <a href="tryJob.html" class="active">
         <b></b>

@@ -16,8 +16,8 @@
     <!--屏幕顶部条的颜色-->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>我的-工作经历</title>
-    <link rel="stylesheet" href="node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/common.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/common.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/mycss.css">
     <style>
@@ -102,28 +102,31 @@
     <h2><a class="returnBtn" onClick="javascript:history.back(-1);">&lt;</a><a class="editSave" href="javascript:void(0);">保存</a>工作经历</h2>
 </header>
 <div class="topheight"></div>
-<div id="addWorkEdit">
-    <form action="myWork.html" method="get">
-        <ul>
-            <li class="jobname">
-                <b>职位名称</b><span><input type="text" name="jobName" id="jobName" class="xianzhi showClose" maxlength="30" placeholder="请填写"><em>&times;</em></span>
-            </li>
-            <li class="companyname">
-                <b>公司全称</b><span><input type="text" name="companyName" id="companyName" class="xianzhi showClose" maxlength="40" placeholder="请填写"><em>&times;</em></span>
-            </li>
-            <li class="workTime">
-                <b>工作时限</b><span class="clearfix"><input type="text" id="dateStart" name="date" value="2015-12"> 至 <input type="text" id="dateEnd" name="date" value="2017-11"><i>&gt;</i></span>
-            </li>
-            <li class="workcontent">
-                <label for="workTxt">工作内容</label>
-                <textarea name="workTxt" maxlength="500" id="workTxt" cols="30" rows="10"  placeholder="请填写"></textarea>
-                <span><b>0</b> / <b>500</b></span>
-            </li>
-        </ul>
-        <div class="deleteBtn">
-            <input class="deleteEdit" href="#" type="reset" value="删除">
-        </div>
-    </form>
+<div id="view">
+    <div id="addWorkEdit">
+        <form action="myWork.html" method="get">
+            <ul>
+                <li class="jobname">
+                    <b>职位名称</b><span><input type="text" name="jobName" id="jobName" class="xianzhi showClose" maxlength="30" placeholder="请填写"><em>&times;</em></span>
+                </li>
+                <li class="companyname">
+                    <b>公司全称</b><span><input type="text" name="companyName" id="companyName" class="xianzhi showClose" maxlength="40" placeholder="请填写"><em>&times;</em></span>
+                </li>
+                <li class="workTime">
+                    <b>工作时限</b><span class="clearfix"><input type="text" id="dateStart" name="date" value="2015-12"> 至 <input type="text" id="dateEnd" name="date" value="2017-11"><i>&gt;</i></span>
+                </li>
+                <li class="workcontent">
+                    <label for="workTxt">工作内容</label>
+                    <textarea name="workTxt" maxlength="500" id="workTxt" cols="30" rows="10"  placeholder="请填写"></textarea>
+                    <span><b>0</b> / <b>500</b></span>
+                </li>
+            </ul>
+            <div class="deleteBtn">
+                <input class="deleteEdit" href="#" type="reset" value="删除">
+            </div>
+        </form>
+
+    </div>
 
 </div>
 <div class="bottomheight"></div>

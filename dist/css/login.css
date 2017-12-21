@@ -22,14 +22,14 @@
     right:0;top:0;z-index:100;
 }
 #pwdLogin .inputPwd .pwdSpan{background: url("../images/show_03.png") no-repeat center;background-size: 60%;}
-#mesLogin .inputMes a{line-height:1;position: absolute;right:0;top:4px;color:#00baff;display:inline-block;padding:0 10px;}
+#mesLogin .inputMes a{line-height:1;position: absolute;right:0;top:4px;color:#00baff;display:inline-block;}
 #mesLogin .inputMes a span{display: inline-block;height:28px;width:28px;padding:0 10px;line-height:28px;border-radius:14px;border:1px solid #00baff;position: relative;}
 #pwdLogin em,#mesLogin em{display:none;height:38px;  line-height: 38px;  width: 24px;  font-size: 18px;color:#999;  text-align: center;position: absolute;top:0;right:0;}
-#pwdLogin .inputPwd em{right:26px;}
-#mesLogin .inputMes em{right:50px;}
+#pwdLogin .inputPwd em{right:30px;}
+#mesLogin .inputMes em{right:56px;}
 #pwdLogin input[name="telNumber"],#pwdLogin input[name="password"],#mesLogin input[type="text"]{
-    vertical-align:top;border:0;padding:0;margin:0;background: transparent;line-height: 38px;
-    width:100%;word-break:keep-all;  white-space:nowrap;  overflow:hidden;  text-overflow:ellipsis;
+    vertical-align:middle;border:0;  height: 26px;  line-height: 26px;  font-size: 14px;  border: none;
+    padding: 4px 24px 4px 0;  width:100%;word-break:keep-all;  white-space:nowrap;  overflow:hidden;  text-overflow:ellipsis;
 }
 .inputPwd{padding-right:50px;}
 #pwdLogin input[name="telNumber"]{padding-right:24px;}

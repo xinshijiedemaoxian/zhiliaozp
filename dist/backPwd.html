@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,16 +44,14 @@
                 }
             })
             //            表单清除键
-                $("#telNumber").focus(function(){
-                    clearClose2($(this));
-                }).keyup(function(){
-                    clearClose2($(this));
-                }).blur(function () {
-                    $(this).next().hide();
-                })
+            $("#telNumber").focus(function(){
+                clearClose2($(this));
+            }).keyup(function(){
+                clearClose2($(this));
+            })
 //            清除键作用
             $(".userTel em").each(function(){
-                $(this).on("click",function(){
+                $(this).on("touchend",function(){
                     $(this).hide().prev("input").val("");
                 })
             })
@@ -63,7 +62,7 @@
                 })
             })
         })
-//        提交按钮的变化
+        //        提交按钮的变化
         function changeCk(){
             var telNumber=$("#telNumber").val(),newPwd=$("#newPwd").val(),getCode=$("#getCode").val();
             if(telNumber || newPwd || getCode != ""){
@@ -72,7 +71,7 @@
                 $(".resetPwdBtn").attr("disabled","disabled").css("background","#66d6ff");
             }
         }
-//        手机号密码验证
+        //        手机号密码验证
         function restPwd(){
             $("#telNumber").trigger("telCk");
             $("#newPwd").trigger("newPwdCk");
@@ -88,7 +87,7 @@
                 return false;
             }
         }
-//        获取验证码
+        //        获取验证码
         function getCode() {
             $("#telNumber").trigger("telCk");
             if(NewOk1==true){
@@ -130,27 +129,28 @@
 <header id="header" class="navbar-fixed-top">
     <h2 class="text-center"><a class="closeBtn" onClick="javascript:history.back(-1);">&times;</a>找回密码</h2>
 </header>
-<div class="topheight"></div>
-<div id="backPwdContent">
-    <form action="index.html" method="get">
-        <ul>
-            <li class="userTel">
-                <input type="text" name="telNumber" id="telNumber" class="tyInput" placeholder="手机号"><em>&times;</em>
-            </li>
-            <li class="newPwdLi">
-                <input type="password" name="newPwd" id="newPwd" class="tyInput" placeholder="新密码（6-20位数字、字母或字符）">
+<div id="view">
+    <div id="backPwdContent">
+        <form action="index.html" method="get">
+            <ul>
+                <li class="userTel">
+                    <input type="text" name="telNumber" id="telNumber" class="tyInput" placeholder="手机号"><em>&times;</em>
+                </li>
+                <li class="newPwdLi">
+                    <input type="password" name="newPwd" id="newPwd" class="tyInput" placeholder="新密码（6-20位数字、字母或字符）">
+                </li>
+                <li class="getCodeLi">
+                    <input type="password" name="newPwd" class="tyInput" id="getCode" placeholder="验证码"><a href="javascript:void(0);" class="get" onclick="getCode()">获取</a>
+                    <p class="wrError"></p>
+                </li>
+            </ul>
+            <div class="resetPwd">
+                <input class="resetPwdBtn" type="submit" value="重置密码并登录" disabled="disabled" onclick="return restPwd();"/>
+            </div>
+        </form>
+    </div>
+    <div class="Errordiv" style="display: none;"><span class="checkError"></span></div>
 
-            </li>
-            <li class="getCodeLi">
-                <input type="password" name="newPwd" class="tyInput" id="getCode" placeholder="验证码"><a href="javascript:void(0);" class="get" onclick="getCode()">获取</a>
-                <p class="wrError"></p>
-            </li>
-        </ul>
-        <div class="resetPwd">
-            <input class="resetPwdBtn" type="submit" value="重置密码并登录" disabled="disabled" onclick="return restPwd();"/>
-        </div>
-    </form>
 </div>
-<div class="Errordiv" style="display: none;"><span class="checkError"></span></div>
 </body>
 </html>

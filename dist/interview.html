@@ -16,7 +16,7 @@
     <!--屏幕顶部条的颜色-->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>面试记录</title>
-    <link rel="stylesheet" href="node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/mycss.css">
     <style>
@@ -34,76 +34,77 @@
         .modal-footer .giveUp{float:right;background: transparent;border:1px solid #999;color:#999;}
     </style>
     <script src="node_modules/jquery-1.9.1.min.js"></script>
-    <script src="node_modules/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header id="header" class="navbar-fixed-top">
     <h2 class="text-center"><a class="returnBtn" onClick="javascript:history.back(-1);">&lt;</a><a class="closeBtn" onClick="javascript:history.back(-1);">&times;</a>面试记录</h2>
 </header>
-<div class="topheight"></div>
-<div id="interViewShow">
-    <div class="interViewList clearfix">
-        <div class="comName">
-            <img src="images/comlog_03.png" alt="公司logo">
-            <h4>每日优鲜</h4>
+<div id="view">
+    <div id="interViewShow">
+        <div class="interViewList clearfix">
+            <div class="comName">
+                <img src="images/comlog_03.png" alt="公司logo">
+                <h4>每日优鲜</h4>
+            </div>
+            <ul class="showDetail">
+                <li class="showState"><a href=""><b></b><span class="time">11月3日10：30</span><span class="state">等待现场面试</span></a></li>
+                <li>
+                    <b>小程序推广员</b><em>6-12K</em>
+                </li>
+                <li>
+                    <p>北京市东城区雍和大厦F座2层.东城区雍和大厦F座2层厦F座2层.东城区雍和大厦F座2层</p>
+                </li>
+                <li>
+                    <span>张经理：</span><i>13556567788</i>
+                </li>
+                <li class="deleteList"><a href="javascript:void(0);" class="cancelRe" data-toggle="modal" data-target="#cancleModal">取消预约</a></li>
+            </ul>
         </div>
-        <ul class="showDetail">
-            <li class="showState"><a href=""><b></b><span class="time">11月3日10：30</span><span class="state">等待现场面试</span></a></li>
-            <li>
-                <b>小程序推广员</b><em>6-12K</em>
-            </li>
-            <li>
-                <p>北京市东城区雍和大厦F座2层.东城区雍和大厦F座2层厦F座2层.东城区雍和大厦F座2层</p>
-            </li>
-            <li>
-                <span>张经理：</span><i>13556567788</i>
-            </li>
-            <li class="deleteList"><a href="javascript:void(0);" class="cancelRe" data-toggle="modal" data-target="#cancleModal">取消预约</a></li>
-        </ul>
-    </div>
-    <div class="interViewList clearfix">
-        <div class="comName">
-            <img src="images/comlog_03.png" alt="公司logo">
-            <h4>每日优鲜</h4>
+        <div class="interViewList clearfix">
+            <div class="comName">
+                <img src="images/comlog_03.png" alt="公司logo">
+                <h4>每日优鲜</h4>
+            </div>
+            <ul class="showDetail">
+                <li class="showState"><a href=""><b></b><span class="time">11月3日10：30</span><span class="state">已面试</span></a></li>
+                <li>
+                    <b>小程序推广员</b><em>6-12K</em>
+                </li>
+                <li>
+                    <p>北京市东城区雍和大厦F座2层.东城区雍和大厦F座2层厦F座2层.东城区雍和大厦F座2层</p>
+                </li>
+                <li>
+                    <span>张经理：</span><i>13556567788</i>
+                </li>
+                <li class="deleteList"><a href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal">删除</a></li>
+            </ul>
         </div>
-        <ul class="showDetail">
-            <li class="showState"><a href=""><b></b><span class="time">11月3日10：30</span><span class="state">已面试</span></a></li>
-            <li>
-                <b>小程序推广员</b><em>6-12K</em>
-            </li>
-            <li>
-                <p>北京市东城区雍和大厦F座2层.东城区雍和大厦F座2层厦F座2层.东城区雍和大厦F座2层</p>
-            </li>
-            <li>
-                <span>张经理：</span><i>13556567788</i>
-            </li>
-            <li class="deleteList"><a href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal">删除</a></li>
-        </ul>
-    </div>
-    <div class="interViewList clearfix">
-        <div class="comName">
-            <img src="images/comlog_03.png" alt="公司logo">
-            <h4>每日优鲜</h4>
+        <div class="interViewList clearfix">
+            <div class="comName">
+                <img src="images/comlog_03.png" alt="公司logo">
+                <h4>每日优鲜</h4>
+            </div>
+            <ul class="showDetail">
+                <li class="showState"><a href=""><b></b><span class="time">11月3日10：30</span><span class="state">已取消面试</span></a></li>
+                <li>
+                    <b>小程序推广员</b><em>6-12K</em>
+                </li>
+                <li>
+                    <p>北京市东城区雍和大厦F座2层.东城区雍和大厦F座2层厦F座2层.东城区雍和大厦F座2层</p>
+                </li>
+                <li>
+                    <span>张经理：</span><i>13556567788</i>
+                </li>
+                <li class="deleteList"><a href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal">删除</a></li>
+                <li>
+                    <span>原因：</span><i>点错了</i>
+                </li>
+            </ul>
         </div>
-        <ul class="showDetail">
-            <li class="showState"><a href=""><b></b><span class="time">11月3日10：30</span><span class="state">已取消面试</span></a></li>
-            <li>
-                <b>小程序推广员</b><em>6-12K</em>
-            </li>
-            <li>
-                <p>北京市东城区雍和大厦F座2层.东城区雍和大厦F座2层厦F座2层.东城区雍和大厦F座2层</p>
-            </li>
-            <li>
-                <span>张经理：</span><i>13556567788</i>
-            </li>
-            <li class="deleteList"><a href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal">删除</a></li>
-            <li>
-                <span>原因：</span><i>点错了</i>
-            </li>
-        </ul>
     </div>
 </div>
-<div class="bottomheight"></div>
+
 <footer id="footer" class="navbar-fixed-bottom">
     <a href="tryJob.html" >
         <b></b>

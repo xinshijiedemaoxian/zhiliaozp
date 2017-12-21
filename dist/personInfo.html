@@ -16,8 +16,8 @@
     <!--屏幕顶部条的颜色-->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>我的-个人信息</title>
-    <link rel="stylesheet" href="node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/common.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/common.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/mycss.css">
     <script src="node_modules/jquery-1.9.1.min.js"></script>
@@ -137,45 +137,45 @@
 <header id="header" class="navbar-fixed-top">
     <h2 class="text-center"><a href="javascript:void(0);" class="returnBtn" onClick="javascript:history.back(-1);"></a><a class="closeBtn" onClick="javascript:history.back(-1);">&times;</a>个人信息</h2>
 </header>
-<div class="topheight"></div>
-<div id="infoDetailed">
-    <form action="personpage.html" method="get">
-        <ul>
-            <li class="headerImg move">
-                <b>头像</b><input id="Imgfile" type="file"/><span><img src="images/cam_03.png" alt=""></span>
-            </li>
-            <li class="username">
-                <b>姓名（必填）：</b><span><input type="text" class="xianzhi" name="username" id="userName" placeholder="请填写" maxlength="22" class="showClose"><em>&times;</em></span>
-            </li>
-            <li class="sex">
-                <b>性别（必填）：</b>
-                <span>
+<div id="view">
+    <div id="infoDetailed">
+        <form action="personpage.html" method="get">
+            <ul>
+                <li class="headerImg move">
+                    <b>头像</b><input id="Imgfile" type="file"/><span><img src="images/cam_03.png" alt=""></span>
+                </li>
+                <li class="username">
+                    <b>姓名（必填）：</b><span><input type="text" class="xianzhi" name="username" id="userName" placeholder="请填写" maxlength="22" class="showClose"><em>&times;</em></span>
+                </li>
+                <li class="sex">
+                    <b>性别（必填）：</b>
+                    <span>
                     <label for="men">男</label><b class="yuan"><input id="men" checked="checked" name="sex" type="radio" /></b>
                     <label for="women">女</label><b class="yuan on"><input id="women" name="sex" type="radio" /></b>
                 </span>
-            </li>
-            <li class="date move">
-                <b>出生年月（必填）：</b><span><input type="text" id="date" name="date" value="2002-01" class="kbtn"><label for="date">&gt;</label></span>
-            </li>
-            <li class="education move">
-                <b>最高学历（必填）：</b><span><input type="text" id="edu" name="date" disabled="disabled" value="本科"><label for="edu">&gt;</label></span>
-            </li>
-            <li class="skill">
-                <b>专业（必填）：</b><span><input type="text" name="wxChat" id="skillText" class="jineng showClose" placeholder="请填写" maxlength="20"><em>&times;</em></span>
-            </li>
-            <li class="wx">
-                <b>微信号：</b><span><input type="text" name="wxChat" id="wxChat" class="xianzhi showClose" placeholder="请填写" maxlength="40"><em>&times;</em></span>
-            </li>
-            <li class="myemail">
-                <b>邮箱：</b><span><input type="text" name="myEmail" id="myEmail" class="xianzhi showClose" placeholder="请填写"><em>&times;</em></span>
-            </li>
-        </ul>
-        <div class="saveBtn">
-            <input type="submit" name="saveSubmit" value="保存" id="saveSubmit" onclick="return infocheckSubmit();">
-        </div>
-    </form>
+                </li>
+                <li class="date move">
+                    <b>出生年月（必填）：</b><span><input type="text" id="date" name="date" value="2002-01" class="kbtn"><label for="date">&gt;</label></span>
+                </li>
+                <li class="education move">
+                    <b>最高学历（必填）：</b><span><input type="text" id="edu" name="date" disabled="disabled" value="本科"><label for="edu">&gt;</label></span>
+                </li>
+                <li class="skill">
+                    <b>专业（必填）：</b><span><input type="text" name="wxChat" id="skillText" class="jineng showClose" placeholder="请填写" maxlength="20"><em>&times;</em></span>
+                </li>
+                <li class="wx">
+                    <b>微信号：</b><span><input type="text" name="wxChat" id="wxChat" class="xianzhi showClose" placeholder="请填写" maxlength="40"><em>&times;</em></span>
+                </li>
+                <li class="myemail">
+                    <b>邮箱：</b><span><input type="text" name="myEmail" id="myEmail" class="xianzhi showClose" placeholder="请填写"><em>&times;</em></span>
+                </li>
+            </ul>
+            <div class="saveBtn">
+                <input type="submit" name="saveSubmit" value="保存" id="saveSubmit" onclick="return infocheckSubmit();">
+            </div>
+        </form>
+    </div>
 </div>
-<div class="bottomheight"></div>
 <footer id="footer" class="navbar-fixed-bottom">
     <a href="tryJob.html" >
         <b></b>
