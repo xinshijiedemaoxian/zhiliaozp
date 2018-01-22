@@ -109,6 +109,7 @@ function iphonecheckSubmit(){
     $(".phone").trigger("phoneCk");
     $(".userPwd").trigger("pwdCk");
     if(BooleanOk1 && BooleanOk2 ==true){
+         $("#pwdLogin").find('.submit').attr("disabled", "disabled").css({"color":'#ddd',"background":"#68c5e8"});
         return true;
     }else{
         var str="手机号或密码不正确";
@@ -119,6 +120,7 @@ function iphonecheckSubmit(){
 function keycheckSubmit(){
     $(".phone1").trigger("phone1Ck");
     if(BooleanOk3==true){
+        $("#mesLogin").find('.submit').attr("disabled", "disabled").css({"color":'#ddd',"background":"#68c5e8"});
         return true;
     }else{
         var str="手机号不正确";

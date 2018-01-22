@@ -33,7 +33,7 @@
         <li class="titlePwd blue"><a href="#">密码登录</a></li>
     </ul>
     <div id="pwdLogin" class="show"> <!-- 登录表单 -->
-        <form class="pwdForm" action="personpage.html"  method="get">
+        <form class="pwdForm" action="personpage.html"  method="get" target="_blank" onsubmit="return iphonecheckSubmit();">
             <div class="inputTel">
                 <label class="hide">手机号</label>
                 <input class="txtInput phone" type="text" placeholder="手机号" name="telNumber" maxlength="11"><em>&times;</em>
@@ -49,12 +49,12 @@
             </div>
 
             <div class="formBtn">
-                <input class="submit" type="submit" value="登 录" onclick="return iphonecheckSubmit();">
+                <input class="submit" type="submit" value="登 录" >
             </div>
         </form>
     </div>
     <div id="mesLogin" class="hide"> <!-- 验证登录 -->
-        <form class="pwdForm"  action="personpage.html"  method="get">
+        <form class="pwdForm"  action="personpage.html"  method="get" target="_blank" onsubmit="return keycheckSubmit();" >
             <div class="inputTel">
                 <label class="hide">手机号</label>
                 <input  class="txtInput phone1" type="text" placeholder="手机号" name="telText"><em>&times;</em>
@@ -65,7 +65,7 @@
                 <a href="javascript:void (0);"><span class="getKey">获取</span></a>
             </div>
             <div class="formBtn">
-                <input class="submit" type="submit" value="登 录" onclick="return keycheckSubmit();">
+                <input class="submit" type="submit" value="登 录" >
             </div>
         </form>
     </div>
